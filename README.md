@@ -1,2 +1,2 @@
-# Unlabeled-Sensing-of-Multi-Input-FRI-signals
+# Cross-Channel Unlabeled Sensing
 Work in Progress
