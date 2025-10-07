@@ -1,24 +1,33 @@
-# Cross-Channel Unlabeled Sensing
-Title
+# 🧩 Cross-Channel Unlabeled Sensing (CCUS)
 
-Cross-Channel Unlabeled Sensing (CCUS)
-Python implementation accompanying the papers:
-	1.	T. Koka et al. (2024) – Shuffled Multi-Channel Sparse Signal Recovery, Signal Processing, Elsevier.
-	2.	T. Koka et al. (2025) – Cross-Channel Unlabeled Sensing over a Union of Signal Subspaces, ICASSP 2025.
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen.svg)
+![Platform](https://img.shields.io/badge/platform-Linux%20|%20macOS-lightgrey.svg)
 
-⸻
+---
 
-Abstract
+**Official Python implementation** accompanying:
 
-This repository contains the reference implementation of the algorithms proposed in
-Koka et al. (2024, 2025) for reconstructing shuffled multi-channel sparse signals under unknown sample-to-channel correspondences.
-The framework generalizes unlabeled sensing to multi-channel settings, enabling recovery of sparse or low-rank signals even when channel assignments are corrupted.
+- 📰 *Shuffled Multi-Channel Sparse Signal Recovery*  
+  **T. Koka, M.C. Tsakiris, M. Muma, B. Béjar Haro**  
+  _Signal Processing_, Elsevier, 2024  
+- 🎤 *Cross-Channel Unlabeled Sensing over a Union of Signal Subspaces*  
+  **T. Koka, M.C. Tsakiris, B. Béjar Haro, M. Muma**  
+  _IEEE ICASSP_, 2025
 
-⸻
+---
 
-Features
-	•	Implements cross-channel unlabeled sensing (CCUS) for 2 or more channels.
-	•	Provides robust MM estimators (MM_shuffled, MMrse_shuffled) for sample assignment recovery.
-	•	Includes dictionary learning via convolutional sparse coding (CSC) or custom atoms.
-	•	Supports synthetic simulations and real calcium-imaging data (Drosophila).
-	•	End-to-end example notebooks for reproducible experiments (example.ipynb).
+## ⚙️ Overview
+
+This repository provides reference implementations for **unshuffling multi-channel signals**  
+under unknown channel permutations — a generalization of *unlabeled sensing*.
+
+The algorithms combine:
+- **Robust MM estimation** for sample assignment recovery (`MM_shuffled`, `MMrse_shuffled`)
+- **Sparse and structured regression** for coefficient estimation
+- **Dictionary learning** (via convolutional sparse coding) to obtain signal atoms
+- Simulation and **real-data experiments** (Drosophila calcium imaging)
+
+---
+
+## 📂 Repository Structure
