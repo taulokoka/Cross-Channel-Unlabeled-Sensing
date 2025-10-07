@@ -3,7 +3,7 @@
 Robust two-channel regression with possible per-row swaps via MM/S-estimation.
 
 This module provides:
-1) `MMrse_shuffled`: Alternates between robust regression fits for two
+1) `MM_shuffled`: Alternates between robust regression fits for two
    response channels (Y1, Y2) and an exact, per-row "swap-or-not" decision
    to minimize total squared residual loss. It repeats several outer
    iterations and returns the best run (lowest loss).
