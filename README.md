@@ -20,13 +20,11 @@
 ## ⚙️ Overview
 
 This repository provides reference implementations for **unshuffling multi-channel signals**  
-under unknown channel permutations — a generalization of *unlabeled sensing*.
+under unknown channel permutations — a special case of *structured unlabeled sensing*.
 
 The algorithms combine:
-- **Robust MM estimation** for sample assignment recovery (`MM_shuffled`, `MMrse_shuffled`)
+- **Robust MM estimation** for sample assignment recovery (`MM_shuffled`)
 - **Sparse and structured regression** for coefficient estimation
-- **Dictionary learning** (via convolutional sparse coding) to obtain signal atoms
-- Simulation and **real-data experiments** (Drosophila calcium imaging)
 
 ---
 
@@ -36,8 +34,7 @@ The algorithms combine:
 CrossChannelUnlabeledSensing/
 │
 ├── utils.py                    # Signal simulation, denoising, helper routines
-├── mme_shuffled_signals.py     # MM / MMRSE algorithms for shuffled signals
-├── csc_unshuffle_pipeline.py   # (optional) Learn dictionary + circulant embedding
+├── mme_shuffled_signals.py     # MM algorithms for shuffled signals
 ├── example.ipynb               # End-to-end reproducible experiments
 ├── LICENSE                     # GNU GPL v3.0 license
 └── README.md                   # This file
@@ -70,18 +67,6 @@ b1, b2, _, _, q_hat, losses = MM_shuffled(y1_obs, y2_obs, Z_hat, bdp=0.5)
 
 ---
 
-## 🔬 Learn Circulant Dictionary
-
-```python
-from csc_unshuffle_pipeline import learn_circulant_dict_from_batch
-
-learned = learn_circulant_dict_from_batch(samples_drosophila, n_times_atom=61)
-atom = learned["atom"]
-D = learned["D_circ"]
-```
-
----
-
 ## 📊 Results (example)
 
 | SNR (dB) | Weighted Accuracy | Normalized MSE |
@@ -95,7 +80,7 @@ D = learned["D_circ"]
 
 ---
 
-## 🧠 Citation
+## Citation
 
 If you use this code, please cite:
 
@@ -126,15 +111,4 @@ If you use this code, please cite:
 This project is distributed under the **GNU General Public License v3.0 (GPL-3.0)**.  
 See the [LICENSE](LICENSE) file for details.
 
----
 
-## 🙌 Acknowledgements
-
-This work was supported by:
-- TU Darmstadt, Signal Processing Group  
-- Universidad de Granada, Depto. de Teoría de la Señal  
-- Johns Hopkins University, ECE Department
-
----
-
-> _“Recovery through structure — learning to unshuffle the unobservable.”_
