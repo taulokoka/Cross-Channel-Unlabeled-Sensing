@@ -42,7 +42,6 @@ Implementation notes
 from __future__ import annotations
 
 import math
-from itertools import permutations  # (currently unused; left for parity with original)
 from typing import Optional, Tuple, List
 
 import numpy as np
@@ -56,7 +55,6 @@ def MM_shuffled(
     X_in: np.ndarray,
     bdp: float,
     outeriter: int = 5,
-    project: bool = True,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, List[float]]:
     """
     Robust two-channel regression with per-row swap decisions.
@@ -83,8 +81,6 @@ def MM_shuffled(
     outeriter : int, default=5
         Number of outer alternations (fit → recompute q → update Ŷ).
         The function returns the iteration with minimal loss.
-    project : bool, default=True
-        Kept for API parity; not used in the current implementation.
 
     Returns
     -------
@@ -165,7 +161,6 @@ def mmregres(
     b0: np.ndarray,
     s: float,
     bdp: float = 0,
-    w_fun=None,
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     One MM-regression refinement step using IRWLS with Tukey's biweight.
@@ -184,8 +179,6 @@ def mmregres(
     bdp : float, default=0
         If 0, use default c=4.685. Otherwise compute c via `Tbsc(bdp, 1)`.
         (Here the scale step uses p=1 for c-lookup, consistent with original code.)
-    w_fun : callable, optional
-        Placeholder for custom weight function; currently ignored.
 
     Returns
     -------

@@ -30,13 +30,9 @@ FFT conventions
 
 """
 
-from typing import Iterable, Optional, Tuple
-
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 from scipy.linalg import toeplitz, svd
-from scipy.optimize import lsq_linear
-
 
 # ---------- helpers (internal) ----------
 
@@ -57,54 +53,6 @@ def _wk(N: int) -> NDArray[np.float64]:
         Angular frequency grid in fftshift convention.
     """
     return 2.0 * np.pi * np.fft.fftshift(np.fft.fftfreq(N) * N)
-
-
-def _fourier_of_diracs(
-    ti: NDArray[np.float64],
-    ai: NDArray[np.float64],
-    wk: NDArray[np.float64],
-) -> NDArray[np.complex128]:
-    """
-    Vectorized Fourier series of a Dirac train at frequencies wk.
-
-    Computes Σ_i a_i e^{-j t_i ω_k} for each ω_k.
-
-    Parameters
-    ----------
-    ti : (K,) float64
-        Spike locations in [0,1).
-    ai : (K,) float64
-        Spike amplitudes.
-    wk : (N,) float64
-        Angular frequencies (fftshift grid).
-
-    Returns
-    -------
-    (N,) complex128
-        Spectrum samples.
-    """
-    phase = np.exp(-1j * ti[:, None] * wk[None, :])
-    return (ai[:, None] * phase).sum(axis=0)
-
-
-def _ifft_time(yk: NDArray[np.complex128]) -> NDArray[np.float64]:
-    """
-    Real part of inverse DFT.
-
-    Assumes caller handled fftshift alignment. Returns Re{ifft(yk)}.
-
-    Parameters
-    ----------
-    yk : (N,) complex128
-        Frequency-domain vector (unshifted for ifft).
-
-    Returns
-    -------
-    (N,) float64
-        Real time-domain signal.
-    """
-    return np.real(np.fft.ifft(yk))
-
 
 # ---------- simulation ----------
 

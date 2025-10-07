@@ -1,0 +1,9 @@
+# Core dependencies for Cross-Channel Unlabeled Sensing (CCUS)
+numpy>=1.23,<2.0          # core numerical arrays
+scipy>=1.9                # linear algebra, stats, optimization
+matplotlib>=3.6           # plotting and visualization
+scikit-learn>=1.1         # accuracy_score, etc.
+tqdm>=4.62                # progress bars
+numba>=0.56               # JIT acceleration for inner loops
+jupyterlab>=3.5           # for running example.ipynb
+ipykernel>=6.15           # needed for notebook execution
