@@ -1,4 +1,4 @@
-# 🧩 Cross-Channel Unlabeled Sensing (CCUS)
+# Cross-Channel Unlabeled Sensing (CCUS)
 
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-brightgreen.svg)
@@ -8,10 +8,10 @@
 
 **Official Python implementation** accompanying:
 
-- 📰 *Shuffled Multi-Channel Sparse Signal Recovery*  
+- *Shuffled Multi-Channel Sparse Signal Recovery*  
   **T. Koka, M.C. Tsakiris, M. Muma, B. Béjar Haro**  
   _Signal Processing_, Elsevier, 2024  
-- 🎤 *Cross-Channel Unlabeled Sensing over a Union of Signal Subspaces*  
+- *Cross-Channel Unlabeled Sensing over a Union of Signal Subspaces*  
   **T. Koka, M.C. Tsakiris, B. Béjar Haro, M. Muma**  
   _IEEE ICASSP_, 2025
 
